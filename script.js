@@ -1,38 +1,24 @@
-// Mobile Navigation Toggle
-const navToggle = document.querySelector('#nav-toggle');
-const navMenu = document.querySelector('nav ul');
+// script.js
 
-navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
+// Toggle mobile navigation
+const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
 });
 
-// Smooth Scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-    }
-    });
+// Handle form submissions (Get Involved)
+document.getElementById("involve-form")?.addEventListener("submit", function (e) {
+  e.preventDefault();
+  alert("Thank you for getting involved! We'll be in touch soon.");
+  this.reset();
 });
 
-// Contact Form Validation (Basic)
-const form = document.querySelector('#contact-form');
-if (form) {
-    form.addEventListener('submit', function (e) {
-    const name = form.querySelector('#name').value.trim();
-    const email = form.querySelector('#email').value.trim();
-    const message = form.querySelector('#message').value.trim();
-
-    if (!name || !email || !message) {
-        e.preventDefault();
-        alert('Please fill out all the fields before submitting.');
-    }
-    });
-}
-
-document.getElementById("menu-toggle").addEventListener("click", function () {
-  document.getElementById("nav-links").classList.toggle("active");
+// Handle form submissions (Contact Us)
+document.getElementById("contact-form")?.addEventListener("submit", function (e) {
+  e.preventDefault();
+  alert("Your message has been sent! We’ll get back to you shortly.");
+  this.reset();
 });
-```
+
